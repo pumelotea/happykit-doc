@@ -5,7 +5,7 @@ on:
       - master
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest   // 使用 ubuntu 服务器
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2.3.1
@@ -17,8 +17,8 @@ jobs:
           yarn build
 
       - name: deploy
-        uses: JamesIves/github-pages-deploy-action@3.5.9  // 引用别人的部署插件
+        uses: JamesIves/github-pages-deploy-action@3.5.9
         with:
-          ACCESS_TOKEN: 4f67397c7481cc49248814732a6d788e0021d0db   // 这里需要设置成你的 token
+          ACCESS_TOKEN: 4f67397c7481cc49248814732a6d788e0021d0db
           BRANCH: gh-pages
           FOLDER: docs/.vuepress/dist
