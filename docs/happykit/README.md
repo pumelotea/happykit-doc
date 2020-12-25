@@ -1,4 +1,4 @@
-# HappyBoot-Front-Next
+# Happykit
 
 >面对形形色色的UI框架库，我们的`happyboot`总归过于死板，于是我们决定下钻，
 >成为UI库之下的一个开发依赖库，admin系列框架的发动机；
