@@ -3,12 +3,12 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>HappyBoot-Front-Next | VueDocs</title>
+    <title>Happykit | VueDocs</title>
     <meta name="generator" content="VuePress 1.7.1">
     <link rel="icon" href="/vuejs.png">
     <meta name="description" content="v1.0">
     
-    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.3b87a565.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/8.adb1d560.js" as="script"><link rel="prefetch" href="/assets/js/3.957cc2dd.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/7.0120c286.js">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.53ac1d0d.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/8.c7ea736b.js" as="script"><link rel="prefetch" href="/assets/js/3.957cc2dd.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/7.0120c286.js">
     <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
   </head>
   <body>
@@ -16,7 +16,7 @@
   happykit
 </a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/happykit/" aria-current="page" class="nav-link router-link-exact-active router-link-active">
   happykit
-</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/happykit/" aria-current="page" class="active sidebar-link">HappyBoot-Front-Next</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/happykit/#设计目标" class="sidebar-link">设计目标</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架模块" class="sidebar-link">核心框架模块</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架用户模块" class="sidebar-link">核心框架用户模块</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架主题模块" class="sidebar-link">核心框架主题模块</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架功能权限模块" class="sidebar-link">核心框架功能权限模块</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架工厂模块" class="sidebar-link">核心框架工厂模块</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="happyboot-front-next"><a href="#happyboot-front-next" class="header-anchor">#</a> HappyBoot-Front-Next</h1> <blockquote><p>面对形形色色的UI框架库，我们的<code>happyboot</code>总归过于死板，于是我们决定下钻，
+</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/happykit/" aria-current="page" class="active sidebar-link">Happykit</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/happykit/#设计目标" class="sidebar-link">设计目标</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架模块" class="sidebar-link">核心框架模块</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架用户模块" class="sidebar-link">核心框架用户模块</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架主题模块" class="sidebar-link">核心框架主题模块</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架功能权限模块" class="sidebar-link">核心框架功能权限模块</a></li><li class="sidebar-sub-header"><a href="/happykit/#核心框架工厂模块" class="sidebar-link">核心框架工厂模块</a></li></ul></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="happykit"><a href="#happykit" class="header-anchor">#</a> Happykit</h1> <blockquote><p>面对形形色色的UI框架库，我们的<code>happyboot</code>总归过于死板，于是我们决定下钻，
 成为UI库之下的一个开发依赖库，admin系列框架的发动机；
 新的开始，新的思想，让我们拥抱未来！</p></blockquote> <h2 id="设计目标"><a href="#设计目标" class="header-anchor">#</a> 设计目标</h2> <ul><li>解耦后端框架</li> <li>解耦UI框架</li> <li>解耦用户行为（路由跳转、弹出框），使之支持自定义行为配置</li> <li>利用ts类型统一核心模块的结构</li> <li>全面拥抱vue3和ts</li> <li>新增适配器设计模式</li></ul> <h2 id="核心框架模块"><a href="#核心框架模块" class="header-anchor">#</a> 核心框架模块</h2> <p>设计框架模块的数据结构类型，必须包含初始化器。</p> <ul><li>core-framework
 <ul><li>初始化模块
@@ -29,6 +29,6 @@
 <ul><li>初始化模块</li> <li>加载主题数据</li> <li>切花布局</li> <li>切换配色</li></ul></li></ul> <h2 id="核心框架功能权限模块"><a href="#核心框架功能权限模块" class="header-anchor">#</a> 核心框架功能权限模块</h2> <p>主要用于菜单相关数据的维护，dom颗粒度功能权限的控制，菜单初始化，面包屑的输出，支持自定义数据适配器（需要使用ts来规定数据结构）</p> <ul><li>core-permission
 <ul><li>菜单权限</li> <li>动态路由初始化</li> <li>DOM权限</li></ul></li></ul> <h2 id="核心框架工厂模块"><a href="#核心框架工厂模块" class="header-anchor">#</a> 核心框架工厂模块</h2> <p>主要用于创建常用的实例，并且支持默认配置和自定义配置，支持注册到app实例上。</p> <ul><li>core-factory
 <ul><li>创建axiosClient</li> <li>创建routerInstance</li></ul></li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.3b87a565.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/8.adb1d560.js" defer></script>
+    <script src="/assets/js/app.53ac1d0d.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/8.c7ea736b.js" defer></script>
   </body>
 </html>
