@@ -1,5 +1,6 @@
 module.exports = {
   title: 'VueDocs',
+  base: '/happykit-doc/',
   description: 'v1.0',
   head: [
     ['link', { rel: 'icon', href: '/vuejs.png' }]
