@@ -18,8 +18,9 @@ jobs:
         run: yarn build
 
       - name: deploy
-        uses: JamesIves/github-pages-deploy-action@3.5.9
+        uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
-          ACCESS_TOKEN: 4f67397c7481cc49248814732a6d788e0021d0db
-          BRANCH: gh-pages
-          FOLDER: docs/.vuepress/dist
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+            BRANCH: gh-pages # The branch the action should deploy to.
+            FOLDER: build # The folder the action should deploy.
+            CLEAN: true # Automatically remove deleted files from the deploy branch
