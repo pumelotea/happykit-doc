@@ -1,0 +1,12 @@
+{
+  "name": "happykit-doc",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vuepress": "^1.7.1"
+  }
+}

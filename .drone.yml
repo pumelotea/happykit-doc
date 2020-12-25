@@ -1,0 +1,82 @@
+kind: pipeline
+name: default
+type: docker
+
+clone:
+  disable: true
+
+steps:
+  - name: clone
+    pull: if-not-exists
+    image: alpine/git
+    volumes:
+      - name: sshkeys
+        path: /root/.ssh
+    commands:
+      - git clone $DRONE_GIT_SSH_URL .
+      - git checkout $DRONE_COMMIT
+
+  - name: build-docs
+    pull: if-not-exists
+    image: docker.io/opens/vuepress
+    settings:
+      mirror: https://docker.mirrors.ustc.edu.cn
+    commands:
+      - yarn run build
+
+  - name: build-image
+    pull: if-not-exists
+    image: plugins/docker
+    settings:
+      mirror: https://docker.mirrors.ustc.edu.cn
+      dockerfile: Dockerfile
+      repo: 10.10.0.14:5000/docs/vue-specification
+      registry: 10.10.0.14:5000
+      tags: ${DRONE_BUILD_NUMBER}
+      username: root
+      password: lt@123456
+      insecure: true
+
+  - name: deploy-container
+    pull: if-not-exists
+    image: appleboy/drone-ssh
+    settings:
+      host: 10.10.0.14
+      username: root
+      password: lt@123456
+      port: 22014
+      script:
+        - echo start update container
+        - echo login registry 10.10.0.14:5000
+        - docker login -u root -p lt@123456 10.10.0.14:5000
+        - docker pull 10.10.0.14:5000/docs/vue-specification:${DRONE_BUILD_NUMBER}
+        - list=$(docker ps -a| grep docs-vue-specification* | awk '{print $1}')
+        - test "$list" = "" && echo "none docs-vue-specification containers running" || docker stop $list
+        - docker run -d -p2000:8080 -v /data/docs/vue-specification:/test --privileged=true  --name=docs-vue-specification-${DRONE_BUILD_NUMBER} 10.10.0.14:5000/docs/vue-specification:${DRONE_BUILD_NUMBER}
+
+  - name: dingtalk
+    pull: if-not-exists
+    image: guoxudongdocker/drone-dingtalk
+    settings:
+      token: 8d2d66e0fb4fcea484189f676333ce738e6e270d35630341dab320fc009eab9f
+      type: markdown
+      message_color: true
+      message_pic: true
+      sha_link: true
+    when:
+      status: [failure, success]
+
+trigger:
+  branch:
+    - master
+  event:
+    - push
+
+
+volumes:
+  - name: cache
+    host:
+      path: /tmp/cache
+  - name: sshkeys
+    host:
+      path: /root/.ssh
