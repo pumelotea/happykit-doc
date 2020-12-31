@@ -8,87 +8,18 @@
     
     <meta name="description" content="v1.0">
     
-    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.42793d0a.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/7.54278e4a.js" as="script"><link rel="prefetch" href="/assets/js/3.957cc2dd.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/8.8dc4ae9b.js">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.ec9e875a.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/7.591423d2.js" as="script"><link rel="prefetch" href="/assets/js/3.d9ef3586.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/8.6ef3a2b9.js"><link rel="prefetch" href="/assets/js/9.fcfeda19.js">
     <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
   </head>
   <body>
-    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" aria-current="page" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">HappyKit</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/happykit/" class="nav-link">
-  happykit
-</a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/happykit/" class="nav-link">
-  happykit
-</a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/happykit/" class="sidebar-link">设计文档</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="happykit"><a href="#happykit" class="header-anchor">#</a> Happykit</h1> <blockquote><p><strong>a full new admin framework engine for vue3js!</strong></p></blockquote> <h2 id="提案"><a href="#提案" class="header-anchor">#</a> 提案</h2> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/**
- * 2020年12月24日16:50:46
- */</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> createApp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'vue'</span>
-<span class="token keyword">import</span>
-<span class="token punctuation">{</span>
-  <span class="token comment">/**
-   * happykit相关的静态独立工厂方法
-   */</span>
-  <span class="token comment">//创建框架实例</span>
-  createFramework<span class="token punctuation">,</span>
-  <span class="token comment">//创建路由实例</span>
-  createRouter<span class="token punctuation">,</span>
-  <span class="token comment">//创建接口请求器实例</span>
-  createHttp<span class="token punctuation">,</span>
-  <span class="token comment">//创建路由拦截器</span>
-  createRouterInterceptor<span class="token punctuation">,</span>
-  <span class="token comment">//创建接口请求拦截器</span>
-  createHttpInterceptor<span class="token punctuation">,</span>
-  <span class="token comment">//路由拦截类型枚举</span>
-  RouterInterceptor<span class="token punctuation">,</span>
-  <span class="token comment">//请求拦截类型枚举</span>
-  HttpInterceptor<span class="token punctuation">,</span>
-  <span class="token comment">//创建默认路由拦截器</span>
-  createDefaultRouterInterceptor<span class="token punctuation">,</span>
-  <span class="token comment">//创建默认接口请求拦截器</span>
-  createDefaultHttpInterceptor
-<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'happykit'</span>
-
-<span class="token comment">//框架相关</span>
-<span class="token keyword">const</span> options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
-<span class="token keyword">const</span> framework <span class="token operator">=</span> <span class="token function">createFramework</span><span class="token punctuation">(</span>options<span class="token punctuation">)</span>
-
-
-<span class="token comment">/**
- * 路由相关
- */</span>
-<span class="token keyword">const</span> routerBefore <span class="token operator">=</span> <span class="token function">createRouterInterceptor</span><span class="token punctuation">(</span>RouterInterceptor<span class="token punctuation">.</span>Before<span class="token punctuation">,</span><span class="token punctuation">(</span>to<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> next<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-  <span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> routerAfter <span class="token operator">=</span> <span class="token function">createRouterInterceptor</span><span class="token punctuation">(</span>RouterInterceptor<span class="token punctuation">.</span>After<span class="token punctuation">,</span><span class="token punctuation">(</span>to<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> <span class="token keyword">from</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> routerOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
-  routerBefore<span class="token punctuation">,</span>
-  routerAfter
-<span class="token punctuation">}</span>
-<span class="token keyword">const</span> router <span class="token operator">=</span> <span class="token function">createRouter</span><span class="token punctuation">(</span>routerOptions<span class="token punctuation">)</span>
-
-
-<span class="token comment">/**
- * axios相关
- */</span>
-<span class="token keyword">const</span> httpBefore <span class="token operator">=</span> <span class="token function">createHttpInterceptor</span><span class="token punctuation">(</span>HttpInterceptor<span class="token punctuation">.</span>Before<span class="token punctuation">,</span><span class="token punctuation">(</span>config<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> httpAfter <span class="token operator">=</span> <span class="token function">createHttpInterceptor</span><span class="token punctuation">(</span>HttpInterceptor<span class="token punctuation">.</span>After<span class="token punctuation">,</span><span class="token punctuation">(</span>response<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> response
-<span class="token punctuation">}</span><span class="token punctuation">)</span>
-<span class="token keyword">const</span> httpOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
-  httpBefore<span class="token punctuation">,</span>
-  httpAfter<span class="token punctuation">,</span>
-<span class="token punctuation">}</span>
-<span class="token keyword">const</span> http <span class="token operator">=</span> <span class="token function">createHttp</span><span class="token punctuation">(</span>httpOptions<span class="token punctuation">)</span>
-
-
-
-<span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">createApp</span><span class="token punctuation">(</span>App<span class="token punctuation">)</span>
-<span class="token comment">/**
- * framework在install方法中进行挂载到vue实例的全局变量中。
- */</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>framework<span class="token punctuation">)</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>router<span class="token punctuation">)</span>
-app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>http<span class="token punctuation">)</span>
-app<span class="token punctuation">.</span><span class="token function">mount</span><span class="token punctuation">(</span><span class="token string">'#app'</span><span class="token punctuation">)</span>
-
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.42793d0a.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/7.54278e4a.js" defer></script>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" aria-current="page" class="home-link router-link-exact-active router-link-active"><!----> <span class="site-name">HappyKit</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="https://github.com/pumelotea/happykit.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="https://github.com/pumelotea/happykit.git" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></div> <!----></nav>  <ul class="sidebar-links"><li><a href="/guide/" class="sidebar-link">快速上手</a></li><li><a href="/api/" class="sidebar-link">接口说明</a></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h1 id="happykit"><a href="#happykit" class="header-anchor">#</a> Happykit</h1> <blockquote><p><strong>一个基于vue3js的全新的管理端开发框架</strong></p></blockquote> <h2 id="前传"><a href="#前传" class="header-anchor">#</a> 前传</h2> <p>经过一段时间断断续续的孵化，2020年，我们孵化了一个admin框架叫做happyboot。happyboot是一整套框架，包含了后端和前端2部分。
+我们设计happyboot的时候，目标是为了拥有一个得心应手的开发框架，一切如愿实现了。可能会有人说，为什么不用开源的admin框架呢？
+因为我们有自己的想法。</p> <h2 id="框架介绍"><a href="#框架介绍" class="header-anchor">#</a> 框架介绍</h2> <p>happykit不依赖任何第三方的UI库，开发者可以使用自己喜欢的UI库进行开发。happykit主要关注的数据状态的维护，以及核心逻辑的实现；
+通过数据适配器的思想进行数据的交互，通过提供类似工厂的方法进行实例创建。</p> <h2 id="技术特性"><a href="#技术特性" class="header-anchor">#</a> 技术特性</h2> <ul><li>基于vue3js</li> <li>基于Typescript</li> <li>基于vue-router</li></ul></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ec9e875a.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/7.591423d2.js" defer></script>
   </body>
 </html>
