@@ -11,12 +11,13 @@ module.exports = {
     sidebarDepth:3,
     nav: [
       {
-        text: "happykit",
-        link: "/happykit/",
+        text: "Github",
+        link: "https://github.com/pumelotea/happykit.git",
       },
     ],
     sidebar: [
-      '/happykit/',
+      '/guide/',
+      '/api/',
     ]
   }
 }
