@@ -48,6 +48,12 @@ router.beforeEach((to: any, from: any, next: any)=>{
     beforeInterceptor.filter(to,from,next)
 })
 
+createApp(App)
+    .use(store)
+    .use(router)
+    .use(happyFramework)
+    .mount("#app");
+
 ```
 
 
