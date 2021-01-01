@@ -2,27 +2,85 @@
 
 ## 工厂方法
 
+### createHappyFramework
+```ts
+export declare function createHappyFramework(options?: any): HappyKitFramework
+```
+> 创建核心框架实例
+- 参数
+    - {any} options   
+    扩展选项，暂时不需要传递
+- 返回
+    - {HappyKitFramework} 框架实例
+- 用法   
+直接调用后，返回的实例利用vue的插件安装方法`app.use(框架实例)`装载即可
+
 ### createEmptyMenuItem
+
 ```ts
 export declare function createEmptyMenuItem(): MenuItem
 ```
+> 创建一个空的菜单数据结构，用于自定义数据填充。
+
+- 参数
+    - 无
+- 返回
+    - {MenuItem} 菜单数据项实例
+- 用法   
+直接调用即可
+
 
 ### createDefaultMenuAdapter
+
 ```ts
 export declare function createDefaultMenuAdapter(): MenuAdapter<MenuItem>
 ```
+> 创建默认的菜单数据适配器对象
+
+- 参数
+    - 无
+- 返回
+    - {MenuAdapter&lt;MenuItem&gt; } 菜单数据适配器，泛型为`MenuItem`
+- 用法   
+直接调用即可
 
 ### createDefaultPageIdFactory
+
 ```ts
 export declare function createDefaultPageIdFactory(
   framework: HappyKitFramework
 ): PageIdFactory
 ```
 
+> 创建默认的页面id生成工厂对象
+
+- 参数
+    - {HappyKitFramework} framework   
+    框架实例作为上下文对象
+
+- 返回
+    - {PageIdFactory} 页面id工厂实例
+
+- 用法    
+创建默认的页面id生成工厂实例
+
+
 ### injectRoutes
+
 ```ts
 export declare function injectRoutes(options: RouterInjectOption):void
 ```
+> 路由注入函数
+- 参数
+    - {RouterInjectOption} options     
+    路由注入选项，详细参见`RouterInjectOption`章节
+
+- 返回
+    - {PageIdFactory} 页面id工厂实例
+
+- 用法     
+在路由对象和框架创建后调用即可
+
 
 ### createDefaultRouterInterceptor
 ```ts
@@ -30,6 +88,17 @@ export declare function createDefaultRouterInterceptor(
   options: RouterInterceptorOption
 ): RouterInterceptor
 ```
+> 创建默认的路由拦截器对象
+- 参数
+    - {RouterInterceptorOption} options     
+    路由拦截器选项，详细参见`RouterInterceptorOption`章节
+
+- 返回
+    - {RouterInterceptor} 路由拦截器对象
+
+- 用法     
+在路由对象创建后，在路由`router.beforeEach`或者`router.afterEach`回调中调用即可
+
 
 ## 接口定义
 
@@ -39,8 +108,8 @@ export declare function createDefaultRouterInterceptor(
  * 菜单类型
  */
 export declare enum MenuType {
-    MENU = 0,
-    BUTTON = 1
+    MENU = 0,           //菜单
+    BUTTON = 1          //按钮
 }
 ```
 ### LinkTarget
@@ -49,9 +118,9 @@ export declare enum MenuType {
  * 链接跳转类型
  */
 export declare enum LinkTarget {
-    SELF = 0,
-    TAB = 1,
-    BLANK = 2
+    SELF = 0,           //刷新掉当前页面打开
+    TAB = 1,            //在内部的标签页打开
+    BLANK = 2           //在新的浏览器标签页打开
 }
 ```
 ### NavCloseType
@@ -60,11 +129,11 @@ export declare enum LinkTarget {
  * 导航项关闭类型
  */
 export declare enum NavCloseType {
-    SELF = 0,
-    LEFT = 1,
-    RIGHT = 2,
-    OTHER = 3,
-    ALL = 4
+    SELF = 0,           //关闭点击
+    LEFT = 1,           //关闭激活项的左侧所有标签
+    RIGHT = 2,          //关闭激活项的右侧所有标签
+    OTHER = 3,          //关闭除了激活项标签的所有标签
+    ALL = 4             //关闭全部标签
 }
 ```
 ### RouterInterceptorType
@@ -73,8 +142,8 @@ export declare enum NavCloseType {
  * 路由拦截类型
  */
 export declare enum RouterInterceptorType {
-    BEFORE = 0,
-    AFTER = 1
+    BEFORE = 0,         //前置拦截
+    AFTER = 1           //后置拦截
 }
 ```
 ### HTTPInterceptorType
@@ -83,8 +152,8 @@ export declare enum RouterInterceptorType {
  * HTTP请求拦截类型
  */
 export declare enum HTTPInterceptorType {
-    BEFORE = 0,
-    AFTER = 1
+    BEFORE = 0,         //前置拦截
+    AFTER = 1           //后置拦截
 }
 ```
 ### MenuItem
@@ -94,32 +163,96 @@ export declare enum HTTPInterceptorType {
  */
 export declare interface MenuItem {
     /**
-     * 必须要有的数据
+     * 菜单id
+     * 框架自动生成
      */
     menuId: string;
+    /**
+     * 菜单名称
+     */
     name: string;
+    /**
+     * 图标
+     */
     icon: string;
+    /**
+     * 相对路径
+     * 生成路由路径拼接时使用
+     */
     path: string;
+    /**
+     * 视图组件的相对路径
+     */
     view: string;
+    /**
+     * 是否为路由节点
+     */
     isRouter: boolean;
+    /**
+     * 是否需要开启缓存
+     */
     isKeepalive: boolean;
+    /**
+     * 菜单类型
+     */
     type: MenuType;
+    /**
+     * 是否为外部链接
+     */
     externalLink: boolean;
+    /**
+     * 外部链接跳转类型
+     */
     linkTarget: LinkTarget;
+    /**
+     * 外部链接地址
+     */
     externalLinkAddress: string;
+    /**
+     * 是否为隐藏路由
+     */
     hide: boolean;
+    /**
+     * 是否为首页
+     */
     isHome: boolean;
+    /**
+     * 按钮权限控制key
+     */
     permissionKey: string;
+    /**
+     * 子菜单数组
+     */
     children: Array<MenuItem>;
+    
     /**
      * 预处理后的数据
      * 使用上面的数据经过预处理后的数据
      */
+
+    /**
+     * 路由路径
+     */
     routerPath: string;
+    /**
+     * 菜单路径
+     */
     menuPath: Array<MenuItem>;
+    /**
+     * 面包屑路径
+     */
     breadcrumb: Array<MenuItem>;
+    /**
+     * 按钮权限列表
+     */
     buttonList: Array<MenuItem>;
+    /**
+     * 按钮权限map
+     */
     buttonsMap: Map<string, MenuItem>;
+    /**
+     * 可扩展属性
+     */
     [propName: string]: any;
 }
 ```
@@ -129,6 +262,9 @@ export declare interface MenuItem {
  * 追踪器数据结构
  */
 export declare interface Tracker {
+    /**
+     * 客户端id
+     */
     clientId: string;
 }
 ```
@@ -138,30 +274,61 @@ export declare interface Tracker {
  * 导航项数据结构
  */
 export declare interface NavItem {
+    /**
+     * 页面id
+     * 由页面id工厂生成
+     */
     pageId: string;
+    /**
+     * 导航项的标题
+     */
     title: string;
+    /**
+     * 路由前往的目标
+     * 可以是字符串路由路径，也可以是路由对象
+     */
     to: any;
+    /**
+     * 所关联的菜单项
+     */
     menuItem: MenuItem;
 }
 ```
-### Adapter
+### Adapter&lt;T&gt;
 ```ts
 /**
  * 通用适配器
  */
 export declare interface Adapter<T> {
+    /**
+     * 转换方法
+     * @param rawData 原始数据
+     */
     convert(rawData: any): Array<T>;
 }
 ```
-### MenuAdapter
+### MenuAdapter&lt;T&gt;
 ```ts
 /**
  * 菜单数据适配器
  */
 export declare interface MenuAdapter<T> {
+    /**
+     * 转换方法
+     * @param rawData 原始数据
+     */
     convert(rawData: any): {
-        routeMappingList: T[];
+        /**
+         * 路由数组
+         */
+        routeMappingList: T[]; 
+        /**
+         * 经过适配器转换后的数组
+         */
         menuTreeConverted: T[];
+        /**
+         * 菜单id和菜单项的map
+         */
         menuIdMappingMap: Map<string, T>;
     };
 }
@@ -172,6 +339,11 @@ export declare interface MenuAdapter<T> {
  * 导航项相关事件
  */
 export declare interface HappyKitNavEvent {
+    /**
+     * 回调方法类型
+     * @param removedNavs 移除的导航项
+     * @param needNavs    需要前往的导航项
+     */
     (removedNavs: Array<NavItem>, needNavs: Array<NavItem>): void;
 }
 ```
@@ -181,6 +353,10 @@ export declare interface HappyKitNavEvent {
  * 菜单项相关事件
  */
 export declare interface HappyKitMenuEvent {
+    /**
+     * 回调方法类型
+     * @param menuItems   返回的菜单项
+     */
     (menuItems: Array<MenuItem>): void;
 }
 ```
@@ -188,6 +364,7 @@ export declare interface HappyKitMenuEvent {
 ```ts
 /**
  * 当前菜单路由
+ * 响应式结构
  */
 export declare interface CurrentMenuRoute {
     value: null | NavItem;
@@ -199,8 +376,19 @@ export declare interface CurrentMenuRoute {
  * 页面id工厂结构
  */
 export declare interface PageIdFactory {
+    /**
+     * 框架上下文
+     */
     framework: HappyKitFramework;
+    /**
+     * id生成方法
+     * @param uniqueString 唯一字符串
+     */
     generate(uniqueString: string): string;
+    /**
+     * 获取将要前往的id
+     * @param uniqueString to 前往的目的
+     */
     getNextPageId(to: any): string;
 }
 ```
@@ -210,9 +398,21 @@ export declare interface PageIdFactory {
  * 核心框架选项数据结构
  */
 export declare interface HappyKitFrameworkOption {
+    /**
+     * vue3的实例
+     */
     app?: App;
+    /**
+     * 可选的菜单数据适配器实例
+     */
     menuAdapter?: MenuAdapter<MenuItem>;
+    /**
+     * 可选的菜单id工厂实例
+     */
     pageIdFactory?: PageIdFactory;
+    /**
+     * 可扩展属性
+     */
     [propName: string]: any;
 }
 ```
@@ -228,31 +428,35 @@ export declare interface HappyKitFramework {
     options: HappyKitFrameworkOption;
     /**
      * 菜单树
+     * 响应式结构
      */
     menuTree: {
         value: Array<MenuItem>;
     };
     /**
      * 导航列表
+     * 响应式结构
      */
     navigatorList: {
         value: Array<NavItem>;
     };
     /**
      * 路由列表
+     * 响应式结构
      */
     routeMappingList: {
         value: Array<MenuItem>;
     };
     /**
      * 菜单id映射表
-     * 提高查找速度
+     * 响应式结构
      */
     menuIdMappingMap: {
         value: Map<string, MenuItem>;
     };
     /**
      * 当前路由
+     * 响应式结构
      */
     currentMenuRoute: CurrentMenuRoute;
     /**
@@ -318,6 +522,10 @@ export declare interface HappyKitFramework {
     getNavList(): {
         value: Array<NavItem>;
     };
+    /**
+     * 获取导航列表
+     * @param pageId
+     */
     getNav(pageId: string): NavItem | null;
     /**
      * 是否存在该导航项
@@ -384,7 +592,7 @@ export declare interface RouterInjectOption {
     routes: Array<MenuItem>;
     /**
      * 视图组件加载器
-     * @param view
+     * @param view 视图组件路径
      */
     viewLoader(view: string): any;
 }
