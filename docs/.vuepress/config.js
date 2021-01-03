@@ -14,10 +14,15 @@ module.exports = {
         text: "Github",
         link: "https://github.com/pumelotea/happykit.git",
       },
+      {
+        text: "HappyBootElement",
+        link: "https://github.com/pumelotea/happyboot-element.git",
+      },
     ],
     sidebar: [
       '/guide/',
       '/api/',
+      '/happyboot-element/',
       '/additional/'
     ]
   }
