@@ -2,6 +2,8 @@
 
 > **一个基于vue3js的全新管理端开发框架**
 
+![image](https://img.shields.io/npm/v/happykit) ![image](https://img.shields.io/github/last-commit/pumelotea/happykit) ![](https://img.shields.io/github/release-date/pumelotea/happykit)
+
 
 ## 前传
 经过一段时间断断续续的孵化，2020年，我们孵化了一个admin框架叫做happyboot。happyboot是一整套框架，包含了后端和前端2部分。
