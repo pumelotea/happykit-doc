@@ -8,7 +8,7 @@
     
     <meta name="description" content="v1.0">
     
-    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.f81709b4.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/9.e9d3f6ea.js" as="script"><link rel="prefetch" href="/assets/js/10.bf1d085d.js"><link rel="prefetch" href="/assets/js/11.c2f6ac4d.js"><link rel="prefetch" href="/assets/js/3.9afa9341.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/7.6298a3b7.js"><link rel="prefetch" href="/assets/js/8.336e0d38.js">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.37809097.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/9.45b87799.js" as="script"><link rel="prefetch" href="/assets/js/10.e569ca00.js"><link rel="prefetch" href="/assets/js/11.c2f6ac4d.js"><link rel="prefetch" href="/assets/js/3.9afa9341.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/7.6298a3b7.js"><link rel="prefetch" href="/assets/js/8.336e0d38.js">
     <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
   </head>
   <body>
@@ -319,155 +319,156 @@
  * 框架
  */</span>
 <span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">interface</span> <span class="token class-name">HappyKitFramework</span> <span class="token punctuation">{</span>
-    <span class="token comment">/**
-     * 初始化属性
-     */</span>
-    options<span class="token operator">:</span> HappyKitFrameworkOption<span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 菜单树
-     * 响应式结构
-     */</span>
-    menuTree<span class="token operator">:</span> <span class="token punctuation">{</span>
-        value<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 导航列表
-     * 响应式结构
-     */</span>
-    navigatorList<span class="token operator">:</span> <span class="token punctuation">{</span>
-        value<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>NavItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 路由列表
-     * 响应式结构
-     */</span>
-    routeMappingList<span class="token operator">:</span> <span class="token punctuation">{</span>
-        value<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 菜单id映射表
-     * 响应式结构
-     */</span>
-    menuIdMappingMap<span class="token operator">:</span> <span class="token punctuation">{</span>
-        value<span class="token operator">:</span> Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 当前路由
-     * 响应式结构
-     */</span>
-    currentMenuRoute<span class="token operator">:</span> CurrentMenuRoute<span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 路由初始化完成标记
-     */</span>
-    routerInitiated<span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 客户端追踪器
-     */</span>
-    tracker<span class="token operator">:</span> Tracker<span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 初始化器
-     * @param options
-     */</span>
-    <span class="token function">init</span><span class="token punctuation">(</span>options<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 设置菜单树
-     * @param rawData 原始数据
-     * @param dataAdapter 数据适配器，提供默认的数据适配器
-     */</span>
-    <span class="token function">setMenuTree</span><span class="token punctuation">(</span>rawData<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> dataAdapter<span class="token operator">?</span><span class="token operator">:</span> MenuAdapter<span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 设置当前的菜单路由
-     * @param currentMenuRoute
-     */</span>
-    <span class="token function">setCurrentMenuRoute</span><span class="token punctuation">(</span>currentMenuRoute<span class="token operator">:</span> NavItem <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 获取菜单树
-     */</span>
-    <span class="token function">getMenuTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        value<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 获取路由列表
-     */</span>
-    <span class="token function">getRouteMappingList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        value<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 获取当前菜单路由
-     */</span>
-    <span class="token function">getCurrentMenuRoute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> CurrentMenuRoute<span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 获取面包屑
-     * @param pageId 如果不传，默认获取当前激活的
-     */</span>
-    <span class="token function">getBreadcrumb</span><span class="token punctuation">(</span>pageId<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 获取追踪器实例
-     */</span>
-    <span class="token function">getTracker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Tracker<span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 初始化追踪器
-     */</span>
-    <span class="token function">initTracker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 刷新客户端id
-     */</span>
-    <span class="token function">refreshClientId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 获取导航列表
-     */</span>
-    <span class="token function">getNavList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-        value<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>NavItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 获取导航列表
-     * @param pageId
-     */</span>
-    <span class="token function">getNav</span><span class="token punctuation">(</span>pageId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> NavItem <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 是否存在该导航项
-     * @param pageId
-     */</span>
-    <span class="token function">isExistNav</span><span class="token punctuation">(</span>pageId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 打开新的导航项
-     *
-     * #case1:
-     * 同一个路由，只能打开一个页面
-     * #case2:
-     * 同一个路由，打开多个页面，不同参数
-     *
-     * @param to 前往目标
-     * @param menuItem
-     * @param title 可选的标题
-     */</span>
-    <span class="token function">openNav</span><span class="token punctuation">(</span>to<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> menuItem<span class="token operator">:</span> MenuItem<span class="token punctuation">,</span> title<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> NavItem <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 关闭导航项
-     * @param type
-     * @param pageId
-     * @param event
-     */</span>
-    <span class="token function">closeNav</span><span class="token punctuation">(</span><span class="token keyword">type</span><span class="token operator">:</span> NavCloseType<span class="token punctuation">,</span> pageId<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> event<span class="token operator">?</span><span class="token operator">:</span> HappyKitNavEvent<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 点击导航项
-     * @param pageId
-     * @param event
-     */</span>
-    <span class="token function">clickNavItem</span><span class="token punctuation">(</span>pageId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> event<span class="token operator">?</span><span class="token operator">:</span> HappyKitNavEvent<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * 点击菜单项
-     * @param menuId
-     * @param event
-     */</span>
-    <span class="token function">clickMenuItem</span><span class="token punctuation">(</span>menuId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> event<span class="token operator">?</span><span class="token operator">:</span> HappyKitMenuEvent<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
-    <span class="token comment">/**
-     * vue插件方法
-     * @param app
-     */</span>
-    <span class="token function">install</span><span class="token punctuation">(</span>app<span class="token operator">:</span> App<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+  <span class="token comment">/**
+   * 初始化属性
+   */</span>
+  options<span class="token operator">:</span> HappyKitFrameworkOption
+  <span class="token comment">/**
+   * 菜单树
+   */</span>
+  menuTree<span class="token operator">:</span> Ref<span class="token operator">&lt;</span>MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span>
+  <span class="token comment">/**
+   * 导航列表
+   */</span>
+  navigatorList<span class="token operator">:</span> Ref<span class="token operator">&lt;</span>NavItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span>
+  <span class="token comment">/**
+   * 路由列表
+   */</span>
+  routeMappingList<span class="token operator">:</span> Ref<span class="token operator">&lt;</span>MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span>
+  <span class="token comment">/**
+   * 菜单id映射表
+   * 提高查找速度
+   */</span>
+  menuIdMappingMap<span class="token operator">:</span> Ref<span class="token operator">&lt;</span>Map<span class="token operator">&lt;</span><span class="token builtin">string</span><span class="token punctuation">,</span> MenuItem<span class="token operator">&gt;&gt;</span>
+  <span class="token comment">/**
+   * 当前路由
+   */</span>
+  currentMenuRoute<span class="token operator">:</span> CurrentMenuRoute
+  <span class="token comment">/**
+   * 路由初始化完成标记
+   */</span>
+  routerInitiated<span class="token operator">:</span> <span class="token builtin">boolean</span>
+  <span class="token comment">/**
+   * 客户端追踪器
+   */</span>
+  tracker<span class="token operator">:</span> Tracker
+
+  <span class="token comment">/**
+   * 初始化器
+   * @param options
+   */</span>
+  <span class="token function">init</span><span class="token punctuation">(</span>options<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+
+  <span class="token comment">/**
+   * 设置菜单树
+   * @param rawData 原始数据
+   * @param dataAdapter 数据适配器，提供默认的数据适配器
+   */</span>
+  <span class="token function">setMenuTree</span><span class="token punctuation">(</span>rawData<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> dataAdapter<span class="token operator">?</span><span class="token operator">:</span> MenuAdapter<span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+
+  <span class="token comment">/**
+   * 设置当前的菜单路由
+   * @param currentMenuRoute
+   */</span>
+  <span class="token function">setCurrentMenuRoute</span><span class="token punctuation">(</span>currentMenuRoute<span class="token operator">:</span> NavItem <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+
+  <span class="token comment">/**
+   * 获取菜单树
+   */</span>
+  <span class="token function">getMenuTree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Ref<span class="token operator">&lt;</span>MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span>
+
+  <span class="token comment">/**
+   * 获取路由列表
+   */</span>
+  <span class="token function">getRouteMappingList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Ref<span class="token operator">&lt;</span>MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span>
+
+  <span class="token comment">/**
+   * 获取当前菜单路由
+   */</span>
+  <span class="token function">getCurrentMenuRoute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> CurrentMenuRoute
+
+  <span class="token comment">/**
+   * 获取面包屑
+   * @param pageId 如果不传，默认获取当前激活的
+   */</span>
+  <span class="token function">getBreadcrumb</span><span class="token punctuation">(</span>pageId<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span>
+
+  <span class="token comment">/**
+   * 获取追踪器实例
+   */</span>
+  <span class="token function">getTracker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Tracker
+
+  <span class="token comment">/**
+   * 初始化追踪器
+   */</span>
+  <span class="token function">initTracker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+
+  <span class="token comment">/**
+   * 刷新客户端id
+   */</span>
+  <span class="token function">refreshClientId</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">string</span>
+
+  <span class="token comment">/**
+   * 获取导航列表
+   */</span>
+  <span class="token function">getNavList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span> Ref<span class="token operator">&lt;</span>NavItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token operator">&gt;</span>
+
+  <span class="token function">getNav</span><span class="token punctuation">(</span>pageId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> NavItem <span class="token operator">|</span> <span class="token keyword">null</span>
+
+  <span class="token comment">/**
+   * 是否存在该导航项
+   * @param pageId
+   */</span>
+  <span class="token function">isExistNav</span><span class="token punctuation">(</span>pageId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">boolean</span>
+
+  <span class="token comment">/**
+   * 打开新的导航项
+   *
+   * #case1:
+   * 同一个路由，只能打开一个页面
+   * #case2:
+   * 同一个路由，打开多个页面，不同参数
+   *
+   * @param to 前往目标
+   * @param menuItem
+   * @param title 可选的标题
+   */</span>
+  <span class="token function">openNav</span><span class="token punctuation">(</span>to<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">,</span> menuItem<span class="token operator">:</span> MenuItem<span class="token punctuation">,</span> title<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> NavItem <span class="token operator">|</span> <span class="token keyword">null</span>
+
+  <span class="token comment">/**
+   * 关闭导航项
+   * @param type
+   * @param pageId
+   * @param event
+   */</span>
+  <span class="token function">closeNav</span><span class="token punctuation">(</span>
+    <span class="token keyword">type</span><span class="token operator">:</span> NavCloseType<span class="token punctuation">,</span>
+    pageId<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span>
+    event<span class="token operator">?</span><span class="token operator">:</span> HappyKitNavEvent<span class="token punctuation">,</span>
+  <span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+
+  <span class="token comment">/**
+   * 点击导航项
+   * @param pageId
+   * @param event
+   */</span>
+  <span class="token function">clickNavItem</span><span class="token punctuation">(</span>pageId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> event<span class="token operator">?</span><span class="token operator">:</span> HappyKitNavEvent<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+
+  <span class="token comment">/**
+   * 点击菜单项
+   * @param menuId
+   * @param event
+   */</span>
+  <span class="token function">clickMenuItem</span><span class="token punctuation">(</span>menuId<span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">,</span> event<span class="token operator">?</span><span class="token operator">:</span> HappyKitMenuEvent<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+
+  <span class="token comment">/**
+   * vue插件方法
+   * @param app
+   */</span>
+  <span class="token function">install</span><span class="token punctuation">(</span>app<span class="token operator">:</span> App<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+
 <span class="token punctuation">}</span>
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br></div></div><h3 id="routerinjectoption"><a href="#routerinjectoption" class="header-anchor">#</a> RouterInjectOption</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/**
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br></div></div><h3 id="routerinjectoption"><a href="#routerinjectoption" class="header-anchor">#</a> RouterInjectOption</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/**
  * 路由注入选项
  */</span>
 <span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">interface</span> <span class="token class-name">RouterInjectOption</span> <span class="token punctuation">{</span>
@@ -542,6 +543,6 @@
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.f81709b4.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/9.e9d3f6ea.js" defer></script>
+    <script src="/assets/js/app.37809097.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/9.45b87799.js" defer></script>
   </body>
 </html>
