@@ -103,14 +103,14 @@ export default {
 ```html
 <template>
   <div>
-    <p v-for="e in routeMappingList.value" :key="e.menuId">
+    <p v-for="e in routeMappingList" :key="e.menuId">
       <a @click="goto(e.menuId)">{{e.menuId}} - {{e.name}} - {{e.routerPath}}</a>
     </p>
     <p>面包屑</p>
     <span>{{breadcrumb}}</span>
     <p>当前路由</p>
-    <div v-if="currentRouteMenu.value">
-      【{{currentRouteMenu.value.title}}】
+    <div v-if="currentRouteMenu">
+      【{{currentRouteMenu.title}}】
     </div>
     <div>
       <button @click="openNav('dash-1111')">open1</button>
@@ -121,9 +121,9 @@ export default {
     <button @click="closeNav(1)">关闭左侧</button>
     <button @click="closeNav(2)">关闭右侧</button>
     <button @click="closeNav(3)">关闭其他</button>
-    <div v-for="e in navList.value" :key="e.pageId">
+    <div v-for="e in navList" :key="e.pageId">
       <button @click="closeNav(4,e.pageId)">CLOSE</button>
-      <a :style="currentRouteMenu.value?.pageId===e.pageId?'color:red':''" @click="navClick(e.pageId)">{{e.title}}</a>
+      <a :style="currentRouteMenu?.pageId===e.pageId?'color:red':''" @click="navClick(e.pageId)">{{e.title}}</a>
     </div>
     <div style="height: 500px;width: 400px;background: antiquewhite">
       <router-view/>

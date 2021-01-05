@@ -422,153 +422,154 @@ export declare interface HappyKitFrameworkOption {
  * 框架
  */
 export declare interface HappyKitFramework {
-    /**
-     * 初始化属性
-     */
-    options: HappyKitFrameworkOption;
-    /**
-     * 菜单树
-     * 响应式结构
-     */
-    menuTree: {
-        value: Array<MenuItem>;
-    };
-    /**
-     * 导航列表
-     * 响应式结构
-     */
-    navigatorList: {
-        value: Array<NavItem>;
-    };
-    /**
-     * 路由列表
-     * 响应式结构
-     */
-    routeMappingList: {
-        value: Array<MenuItem>;
-    };
-    /**
-     * 菜单id映射表
-     * 响应式结构
-     */
-    menuIdMappingMap: {
-        value: Map<string, MenuItem>;
-    };
-    /**
-     * 当前路由
-     * 响应式结构
-     */
-    currentMenuRoute: CurrentMenuRoute;
-    /**
-     * 路由初始化完成标记
-     */
-    routerInitiated: boolean;
-    /**
-     * 客户端追踪器
-     */
-    tracker: Tracker;
-    /**
-     * 初始化器
-     * @param options
-     */
-    init(options?: any): void;
-    /**
-     * 设置菜单树
-     * @param rawData 原始数据
-     * @param dataAdapter 数据适配器，提供默认的数据适配器
-     */
-    setMenuTree(rawData: any, dataAdapter?: MenuAdapter<MenuItem>): void;
-    /**
-     * 设置当前的菜单路由
-     * @param currentMenuRoute
-     */
-    setCurrentMenuRoute(currentMenuRoute: NavItem | null): void;
-    /**
-     * 获取菜单树
-     */
-    getMenuTree(): {
-        value: Array<MenuItem>;
-    };
-    /**
-     * 获取路由列表
-     */
-    getRouteMappingList(): {
-        value: Array<MenuItem>;
-    };
-    /**
-     * 获取当前菜单路由
-     */
-    getCurrentMenuRoute(): CurrentMenuRoute;
-    /**
-     * 获取面包屑
-     * @param pageId 如果不传，默认获取当前激活的
-     */
-    getBreadcrumb(pageId?: string): Array<MenuItem>;
-    /**
-     * 获取追踪器实例
-     */
-    getTracker(): Tracker;
-    /**
-     * 初始化追踪器
-     */
-    initTracker(): void;
-    /**
-     * 刷新客户端id
-     */
-    refreshClientId(): string;
-    /**
-     * 获取导航列表
-     */
-    getNavList(): {
-        value: Array<NavItem>;
-    };
-    /**
-     * 获取导航列表
-     * @param pageId
-     */
-    getNav(pageId: string): NavItem | null;
-    /**
-     * 是否存在该导航项
-     * @param pageId
-     */
-    isExistNav(pageId: string): boolean;
-    /**
-     * 打开新的导航项
-     *
-     * #case1:
-     * 同一个路由，只能打开一个页面
-     * #case2:
-     * 同一个路由，打开多个页面，不同参数
-     *
-     * @param to 前往目标
-     * @param menuItem
-     * @param title 可选的标题
-     */
-    openNav(to: any, menuItem: MenuItem, title?: string): NavItem | null;
-    /**
-     * 关闭导航项
-     * @param type
-     * @param pageId
-     * @param event
-     */
-    closeNav(type: NavCloseType, pageId?: string, event?: HappyKitNavEvent): void;
-    /**
-     * 点击导航项
-     * @param pageId
-     * @param event
-     */
-    clickNavItem(pageId: string, event?: HappyKitNavEvent): void;
-    /**
-     * 点击菜单项
-     * @param menuId
-     * @param event
-     */
-    clickMenuItem(menuId: string, event?: HappyKitMenuEvent): void;
-    /**
-     * vue插件方法
-     * @param app
-     */
-    install(app: App): void;
+  /**
+   * 初始化属性
+   */
+  options: HappyKitFrameworkOption
+  /**
+   * 菜单树
+   */
+  menuTree: Ref<MenuItem[]>
+  /**
+   * 导航列表
+   */
+  navigatorList: Ref<NavItem[]>
+  /**
+   * 路由列表
+   */
+  routeMappingList: Ref<MenuItem[]>
+  /**
+   * 菜单id映射表
+   * 提高查找速度
+   */
+  menuIdMappingMap: Ref<Map<string, MenuItem>>
+  /**
+   * 当前路由
+   */
+  currentMenuRoute: CurrentMenuRoute
+  /**
+   * 路由初始化完成标记
+   */
+  routerInitiated: boolean
+  /**
+   * 客户端追踪器
+   */
+  tracker: Tracker
+
+  /**
+   * 初始化器
+   * @param options
+   */
+  init(options?: any): void
+
+  /**
+   * 设置菜单树
+   * @param rawData 原始数据
+   * @param dataAdapter 数据适配器，提供默认的数据适配器
+   */
+  setMenuTree(rawData: any, dataAdapter?: MenuAdapter<MenuItem>): void
+
+  /**
+   * 设置当前的菜单路由
+   * @param currentMenuRoute
+   */
+  setCurrentMenuRoute(currentMenuRoute: NavItem | null): void
+
+  /**
+   * 获取菜单树
+   */
+  getMenuTree(): Ref<MenuItem[]>
+
+  /**
+   * 获取路由列表
+   */
+  getRouteMappingList(): Ref<MenuItem[]>
+
+  /**
+   * 获取当前菜单路由
+   */
+  getCurrentMenuRoute(): CurrentMenuRoute
+
+  /**
+   * 获取面包屑
+   * @param pageId 如果不传，默认获取当前激活的
+   */
+  getBreadcrumb(pageId?: string): Array<MenuItem>
+
+  /**
+   * 获取追踪器实例
+   */
+  getTracker(): Tracker
+
+  /**
+   * 初始化追踪器
+   */
+  initTracker(): void
+
+  /**
+   * 刷新客户端id
+   */
+  refreshClientId(): string
+
+  /**
+   * 获取导航列表
+   */
+  getNavList(): Ref<NavItem[]>
+
+  getNav(pageId: string): NavItem | null
+
+  /**
+   * 是否存在该导航项
+   * @param pageId
+   */
+  isExistNav(pageId: string): boolean
+
+  /**
+   * 打开新的导航项
+   *
+   * #case1:
+   * 同一个路由，只能打开一个页面
+   * #case2:
+   * 同一个路由，打开多个页面，不同参数
+   *
+   * @param to 前往目标
+   * @param menuItem
+   * @param title 可选的标题
+   */
+  openNav(to: any, menuItem: MenuItem, title?: string): NavItem | null
+
+  /**
+   * 关闭导航项
+   * @param type
+   * @param pageId
+   * @param event
+   */
+  closeNav(
+    type: NavCloseType,
+    pageId?: string,
+    event?: HappyKitNavEvent,
+  ): void
+
+  /**
+   * 点击导航项
+   * @param pageId
+   * @param event
+   */
+  clickNavItem(pageId: string, event?: HappyKitNavEvent): void
+
+  /**
+   * 点击菜单项
+   * @param menuId
+   * @param event
+   */
+  clickMenuItem(menuId: string, event?: HappyKitMenuEvent): void
+
+  /**
+   * vue插件方法
+   * @param app
+   */
+  install(app: App): void
+
 }
 ```
 ### RouterInjectOption
