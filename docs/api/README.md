@@ -90,11 +90,11 @@ export declare function upgradeRouter(framework: HappyKitFramework, router: Rout
 - 参数
   - {HappyKitFramework} framework     
     框架作为上下文
-  - {Router} router
+  - {Router} router    
     vue-router实例
 
 - 返回
-  - {PageIdFactory} 页面id工厂实例
+  - {HappyKitRouter} 升级后的路由实例
 
 - 用法     
   在路由对象和框架创建后调用即可，在需要调用扩展方法的情况下需要做类型断言，   
@@ -671,10 +671,16 @@ export declare interface RouterInterceptor {
 ```ts
 /**
  * vue-router路由子类
- * 扩展一个重载方法
+ * HappyKitRouter继承Router
  */
 export declare interface HappyKitRouter extends Router {
     framework: HappyKitFramework;
+
+  /**
+   * 重载Router中的push
+   * @param to 
+   * @param title 导航项中自定义的标题
+   */
     push(to: RouteLocationRaw, title?: string): Promise<NavigationFailure | void | undefined>;
 }
 ```
