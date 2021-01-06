@@ -8,7 +8,7 @@
     
     <meta name="description" content="v1.0">
     
-    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.b5c30849.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/9.919b38b9.js" as="script"><link rel="prefetch" href="/assets/js/10.5945f380.js"><link rel="prefetch" href="/assets/js/11.f0a6d9ce.js"><link rel="prefetch" href="/assets/js/3.9afa9341.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/7.6d23e3b4.js"><link rel="prefetch" href="/assets/js/8.336e0d38.js">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.e95b8696.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/9.0b94af44.js" as="script"><link rel="prefetch" href="/assets/js/10.4f392545.js"><link rel="prefetch" href="/assets/js/11.c2f6ac4d.js"><link rel="prefetch" href="/assets/js/3.9afa9341.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/7.6d23e3b4.js"><link rel="prefetch" href="/assets/js/8.336e0d38.js">
     <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
   </head>
   <body>
@@ -43,8 +43,8 @@
 路由注入选项，详细参见<code>RouterInjectOption</code>章节</li></ul></li> <li><p>返回</p> <ul><li>{PageIdFactory} 页面id工厂实例</li></ul></li> <li><p>用法<br>
 在路由对象和框架创建后调用即可</p></li></ul> <h3 id="upgraderouter"><a href="#upgraderouter" class="header-anchor">#</a> upgradeRouter</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">function</span> <span class="token function">upgradeRouter</span><span class="token punctuation">(</span>framework<span class="token operator">:</span> HappyKitFramework<span class="token punctuation">,</span> router<span class="token operator">:</span> Router<span class="token punctuation">)</span><span class="token operator">:</span> HappyKitRouter<span class="token punctuation">;</span>
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br></div></div><blockquote><p>路由升级函数，用于扩展<code>vue-router</code></p></blockquote> <ul><li><p>参数</p> <ul><li>{HappyKitFramework} framework<br>
-框架作为上下文</li> <li>{Router} router
-vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{PageIdFactory} 页面id工厂实例</li></ul></li> <li><p>用法<br>
+框架作为上下文</li> <li>{Router} router<br>
+vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升级后的路由实例</li></ul></li> <li><p>用法<br>
 在路由对象和框架创建后调用即可，在需要调用扩展方法的情况下需要做类型断言，<br>
 比如<code>(router as HappyKitRouter).push()</code></p></li></ul> <h3 id="createdefaultrouterinterceptor"><a href="#createdefaultrouterinterceptor" class="header-anchor">#</a> createDefaultRouterInterceptor</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">function</span> <span class="token function">createDefaultRouterInterceptor</span><span class="token punctuation">(</span>
   options<span class="token operator">:</span> RouterInterceptorOption
@@ -541,13 +541,19 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{PageIdFactory} 页面
 <span class="token punctuation">}</span>
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br></div></div><h3 id="happykitrouter"><a href="#happykitrouter" class="header-anchor">#</a> HappyKitRouter</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/**
  * vue-router路由子类
- * 扩展一个重载方法
+ * HappyKitRouter继承Router
  */</span>
 <span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">interface</span> <span class="token class-name">HappyKitRouter</span> <span class="token keyword">extends</span> <span class="token class-name">Router</span> <span class="token punctuation">{</span>
     framework<span class="token operator">:</span> HappyKitFramework<span class="token punctuation">;</span>
+
+  <span class="token comment">/**
+   * 重载Router中的push
+   * @param to 
+   * @param title 导航项中自定义的标题
+   */</span>
     <span class="token function">push</span><span class="token punctuation">(</span>to<span class="token operator">:</span> RouteLocationRaw<span class="token punctuation">,</span> title<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Promise</span><span class="token operator">&lt;</span>NavigationFailure <span class="token operator">|</span> <span class="token keyword">void</span> <span class="token operator">|</span> <span class="token keyword">undefined</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br></div></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/guide/" class="prev">
         快速上手
@@ -556,6 +562,6 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{PageIdFactory} 页面
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.b5c30849.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/9.919b38b9.js" defer></script>
+    <script src="/assets/js/app.e95b8696.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/9.0b94af44.js" defer></script>
   </body>
 </html>
