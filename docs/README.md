@@ -2,7 +2,9 @@
 
 > **一个基于vue3js的全新管理端开发框架**
 
-![image](https://img.shields.io/npm/v/happykit) ![image](https://img.shields.io/github/last-commit/pumelotea/happykit)
+[![image](https://img.shields.io/npm/v/happykit)](https://www.npmjs.com/package/happykit)    
+[![image](https://img.shields.io/github/last-commit/pumelotea/happykit)](https://github.com/pumelotea/happykit)
+
 
 
 ## 前传

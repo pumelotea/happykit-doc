@@ -81,6 +81,25 @@ export declare function injectRoutes(options: RouterInjectOption):void
 - 用法     
 在路由对象和框架创建后调用即可
 
+### upgradeRouter
+
+```ts
+export declare function upgradeRouter(framework: HappyKitFramework, router: Router): HappyKitRouter;
+```
+> 路由升级函数，用于扩展`vue-router`
+- 参数
+  - {HappyKitFramework} framework     
+    框架作为上下文
+  - {Router} router
+    vue-router实例
+
+- 返回
+  - {PageIdFactory} 页面id工厂实例
+
+- 用法     
+  在路由对象和框架创建后调用即可，在需要调用扩展方法的情况下需要做类型断言，   
+  比如`(router as HappyKitRouter).push()`
+
 
 ### createDefaultRouterInterceptor
 ```ts
@@ -646,6 +665,17 @@ export declare interface RouterInterceptor {
      * @param next
      */
     filter(to: RouteLocationNormalized, from: RouteLocationNormalized, next?: NavigationGuardNext): void;
+}
+```
+### HappyKitRouter
+```ts
+/**
+ * vue-router路由子类
+ * 扩展一个重载方法
+ */
+export declare interface HappyKitRouter extends Router {
+    framework: HappyKitFramework;
+    push(to: RouteLocationRaw, title?: string): Promise<NavigationFailure | void | undefined>;
 }
 ```
 

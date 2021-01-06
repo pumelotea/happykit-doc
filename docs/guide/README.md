@@ -16,7 +16,6 @@ RouterInterceptorType
 } from "happykit"
 
 const happyFramework = createHappyFramework()
-
 const beforeInterceptor = createDefaultRouterInterceptor({
     interceptorType:RouterInterceptorType.BEFORE,
     framework:happyFramework,
@@ -48,10 +47,14 @@ router.beforeEach((to: any, from: any, next: any)=>{
     beforeInterceptor.filter(to,from,next)
 })
 
+//升级路由
+const happyKitRouter = upgradeRouter(happyFramework,router)
+
+
 createApp(App)
     .use(store)
-    .use(router)
-    .use(happyFramework)
+    .use(happyKitRouter) //引入升级后路由
+    .use(happyFramework) //引入框架
     .mount("#app");
 
 ```
