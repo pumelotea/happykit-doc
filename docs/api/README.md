@@ -73,7 +73,7 @@ export declare function createDefaultPageIdFactory(framework: HappyKitFramework)
     - {PageIdFactory} 页面id工厂实例
 
 - 用法    
-创建默认的页面id生成工厂实例
+  调用后可以得到默认的页面id生成工厂
 
 ### createDefaultTrackerIdFactory
 
@@ -91,7 +91,7 @@ export declare function createDefaultTrackerIdFactory(framework: HappyKitFramewo
   - {TrackerIdFactory} 追踪id工厂实例
 
 - 用法    
-  创建默认的追踪id生成工厂实例
+  调用后可以得到默认的追踪id生成工厂
 
 ### createDefaultRouterInterceptor
 ```ts
@@ -481,6 +481,11 @@ export declare interface HappyKitFrameworkOption {
      * 可选的菜单id工厂实例
      */
     pageIdFactory?: PageIdFactory;
+
+  /**
+   * 可选的追踪id工厂实例
+   */
+    trackerIdFactory?: TrackerIdFactory
     /**
      * 可扩展属性
      */
@@ -544,7 +549,7 @@ export declare interface HappyKitFramework {
    * 设置当前的菜单路由
    * @param currentMenuRoute
    */
-  setCurrentMenuRoute(currentMenuRoute: CurrentMenuRoute): void
+  setCurrentMenuRoute(currentMenuRoute: NavItem | null): void
 
   /**
    * 获取菜单树
