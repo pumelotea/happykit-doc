@@ -206,8 +206,8 @@ export declare enum HTTPInterceptorType {
  * 存储引擎类型
  */
 export enum StorageEngine {
-  LOCAL_STORAGE,        //localStorage
-  SESSION_STORAGE,      //sessionStorage
+  LOCAL_STORAGE = 0,    //localStorage
+  SESSION_STORAGE = 1,  //sessionStorage
 }
 ```
 ### MenuItem
