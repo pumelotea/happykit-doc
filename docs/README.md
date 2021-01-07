@@ -12,7 +12,6 @@ features:
   details: 可以选择任何第三方UI库，开发自己的admin框架或者移动端框架。
 - title: 拥抱TypeScript
   details: 类型推断与类型检查，编译时就检查错误。
-
 footer: Apache2.0 Licensed | Copyright © 2020-2021 happykit.org
 ---
 
