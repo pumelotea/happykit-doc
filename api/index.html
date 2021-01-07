@@ -8,7 +8,7 @@
     
     <meta name="description" content="v1.0">
     
-    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.17809efa.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/9.0b94af44.js" as="script"><link rel="prefetch" href="/assets/js/10.cf69d020.js"><link rel="prefetch" href="/assets/js/11.c2f6ac4d.js"><link rel="prefetch" href="/assets/js/3.9afa9341.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/7.6d23e3b4.js"><link rel="prefetch" href="/assets/js/8.336e0d38.js">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.0de2fd81.js" as="script"><link rel="preload" href="/assets/js/2.ab9f2bf9.js" as="script"><link rel="preload" href="/assets/js/9.aed9a1c1.js" as="script"><link rel="prefetch" href="/assets/js/10.7fd114a9.js"><link rel="prefetch" href="/assets/js/11.c2f6ac4d.js"><link rel="prefetch" href="/assets/js/3.9afa9341.js"><link rel="prefetch" href="/assets/js/4.d9efc253.js"><link rel="prefetch" href="/assets/js/5.6b3bdc86.js"><link rel="prefetch" href="/assets/js/6.c9f44ce5.js"><link rel="prefetch" href="/assets/js/7.6d23e3b4.js"><link rel="prefetch" href="/assets/js/8.336e0d38.js">
     <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
   </head>
   <body>
@@ -155,7 +155,7 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升�
     <span class="token comment">/**
      * 子菜单数组
      */</span>
-    children<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    children<span class="token operator">:</span> MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     
     <span class="token comment">/**
      * 预处理后的数据
@@ -169,15 +169,15 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升�
     <span class="token comment">/**
      * 菜单路径
      */</span>
-    menuPath<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    menuPath<span class="token operator">:</span> MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token comment">/**
      * 面包屑路径
      */</span>
-    breadcrumb<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    breadcrumb<span class="token operator">:</span> MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token comment">/**
      * 按钮权限列表
      */</span>
-    buttonList<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    buttonList<span class="token operator">:</span> MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token comment">/**
      * 按钮权限map
      */</span>
@@ -227,7 +227,7 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升�
      * 转换方法
      * @param rawData 原始数据
      */</span>
-    <span class="token function">convert</span><span class="token punctuation">(</span>rawData<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span><span class="token constant">T</span><span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    <span class="token function">convert</span><span class="token punctuation">(</span>rawData<span class="token operator">:</span> <span class="token builtin">any</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token constant">T</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="menuadapter-t"><a href="#menuadapter-t" class="header-anchor">#</a> MenuAdapter&lt;T&gt;</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/**
  * 菜单数据适配器
@@ -261,7 +261,7 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升�
      * @param removedNavs 移除的导航项
      * @param needNavs    需要前往的导航项
      */</span>
-    <span class="token punctuation">(</span>removedNavs<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>NavItem<span class="token operator">&gt;</span><span class="token punctuation">,</span> needNavs<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>NavItem<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span>removedNavs<span class="token operator">:</span> NavItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> needNavs<span class="token operator">:</span> NavItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br></div></div><h3 id="happykitmenuevent"><a href="#happykitmenuevent" class="header-anchor">#</a> HappyKitMenuEvent</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/**
  * 菜单项相关事件
@@ -271,16 +271,14 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升�
      * 回调方法类型
      * @param menuItems   返回的菜单项
      */</span>
-    <span class="token punctuation">(</span>menuItems<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+    <span class="token punctuation">(</span>menuItems<span class="token operator">:</span> MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br></div></div><h3 id="currentmenuroute"><a href="#currentmenuroute" class="header-anchor">#</a> CurrentMenuRoute</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/**
  * 当前菜单路由
  * 响应式结构
  */</span>
-<span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">interface</span> <span class="token class-name">CurrentMenuRoute</span> <span class="token punctuation">{</span>
-    value<span class="token operator">:</span> <span class="token keyword">null</span> <span class="token operator">|</span> NavItem<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br></div></div><h3 id="pageidfactory"><a href="#pageidfactory" class="header-anchor">#</a> PageIdFactory</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/**
+<span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">type</span> <span class="token class-name">CurrentMenuRoute</span> <span class="token operator">=</span> Ref<span class="token operator">&lt;</span>NavItem <span class="token operator">|</span> <span class="token keyword">null</span><span class="token operator">&gt;</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><h3 id="pageidfactory"><a href="#pageidfactory" class="header-anchor">#</a> PageIdFactory</h3> <div class="language-ts line-numbers-mode"><pre class="language-ts"><code><span class="token comment">/**
  * 页面id工厂结构
  */</span>
 <span class="token keyword">export</span> <span class="token keyword">declare</span> <span class="token keyword">interface</span> <span class="token class-name">PageIdFactory</span> <span class="token punctuation">{</span>
@@ -375,7 +373,7 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升�
    * 设置当前的菜单路由
    * @param currentMenuRoute
    */</span>
-  <span class="token function">setCurrentMenuRoute</span><span class="token punctuation">(</span>currentMenuRoute<span class="token operator">:</span> NavItem <span class="token operator">|</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
+  <span class="token function">setCurrentMenuRoute</span><span class="token punctuation">(</span>currentMenuRoute<span class="token operator">:</span> CurrentMenuRoute<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token keyword">void</span>
 
   <span class="token comment">/**
    * 获取菜单树
@@ -396,7 +394,7 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升�
    * 获取面包屑
    * @param pageId 如果不传，默认获取当前激活的
    */</span>
-  <span class="token function">getBreadcrumb</span><span class="token punctuation">(</span>pageId<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span>
+  <span class="token function">getBreadcrumb</span><span class="token punctuation">(</span>pageId<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">string</span><span class="token punctuation">)</span><span class="token operator">:</span> MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span>
 
   <span class="token comment">/**
    * 获取追踪器实例
@@ -489,7 +487,7 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升�
     <span class="token comment">/**
      * 待注入的路由数组
      */</span>
-    routes<span class="token operator">:</span> <span class="token builtin">Array</span><span class="token operator">&lt;</span>MenuItem<span class="token operator">&gt;</span><span class="token punctuation">;</span>
+    routes<span class="token operator">:</span> MenuItem<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
     <span class="token comment">/**
      * 视图组件加载器
      * @param view 视图组件路径
@@ -562,6 +560,6 @@ vue-router实例</li></ul></li> <li><p>返回</p> <ul><li>{HappyKitRouter} 升�
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.17809efa.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/9.0b94af44.js" defer></script>
+    <script src="/assets/js/app.0de2fd81.js" defer></script><script src="/assets/js/2.ab9f2bf9.js" defer></script><script src="/assets/js/9.aed9a1c1.js" defer></script>
   </body>
 </html>
