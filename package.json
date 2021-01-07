@@ -7,6 +7,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@vuepress/plugin-back-to-top": "^1.8.0",
     "vuepress": "^1.7.1"
   }
 }
