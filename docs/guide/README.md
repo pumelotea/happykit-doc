@@ -140,7 +140,7 @@ export default {
 <script lang="ts">
 
   import { computed, getCurrentInstance, watchEffect, watch, reactive, isReactive, isRef, ref, onMounted } from 'vue'
-  import { HappyKitFramework, NavCloseType, HappyKitRouter } from '@/lib'
+  import { HappyKitFramework, NavCloseType, HappyKitRouter } from 'happykit'
   import { Router } from 'vue-router'
   export default {
     setup() {

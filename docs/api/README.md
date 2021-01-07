@@ -242,7 +242,7 @@ export declare interface MenuItem {
     /**
      * 子菜单数组
      */
-    children: Array<MenuItem>;
+    children: MenuItem[];
     
     /**
      * 预处理后的数据
@@ -256,15 +256,15 @@ export declare interface MenuItem {
     /**
      * 菜单路径
      */
-    menuPath: Array<MenuItem>;
+    menuPath: MenuItem[];
     /**
      * 面包屑路径
      */
-    breadcrumb: Array<MenuItem>;
+    breadcrumb: MenuItem[];
     /**
      * 按钮权限列表
      */
-    buttonList: Array<MenuItem>;
+    buttonList: MenuItem[];
     /**
      * 按钮权限map
      */
@@ -323,7 +323,7 @@ export declare interface Adapter<T> {
      * 转换方法
      * @param rawData 原始数据
      */
-    convert(rawData: any): Array<T>;
+    convert(rawData: any): T[];
 }
 ```
 ### MenuAdapter&lt;T&gt;
@@ -363,7 +363,7 @@ export declare interface HappyKitNavEvent {
      * @param removedNavs 移除的导航项
      * @param needNavs    需要前往的导航项
      */
-    (removedNavs: Array<NavItem>, needNavs: Array<NavItem>): void;
+    (removedNavs: NavItem[], needNavs: NavItem[]): void;
 }
 ```
 ### HappyKitMenuEvent
@@ -376,7 +376,7 @@ export declare interface HappyKitMenuEvent {
      * 回调方法类型
      * @param menuItems   返回的菜单项
      */
-    (menuItems: Array<MenuItem>): void;
+    (menuItems: MenuItem[]): void;
 }
 ```
 ### CurrentMenuRoute
@@ -385,9 +385,7 @@ export declare interface HappyKitMenuEvent {
  * 当前菜单路由
  * 响应式结构
  */
-export declare interface CurrentMenuRoute {
-    value: null | NavItem;
-}
+export declare type CurrentMenuRoute = Ref<NavItem | null>
 ```
 ### PageIdFactory
 ```ts
@@ -492,7 +490,7 @@ export declare interface HappyKitFramework {
    * 设置当前的菜单路由
    * @param currentMenuRoute
    */
-  setCurrentMenuRoute(currentMenuRoute: NavItem | null): void
+  setCurrentMenuRoute(currentMenuRoute: CurrentMenuRoute): void
 
   /**
    * 获取菜单树
@@ -513,7 +511,7 @@ export declare interface HappyKitFramework {
    * 获取面包屑
    * @param pageId 如果不传，默认获取当前激活的
    */
-  getBreadcrumb(pageId?: string): Array<MenuItem>
+  getBreadcrumb(pageId?: string): MenuItem[]
 
   /**
    * 获取追踪器实例
@@ -609,7 +607,7 @@ export declare interface RouterInjectOption {
     /**
      * 待注入的路由数组
      */
-    routes: Array<MenuItem>;
+    routes: MenuItem[];
     /**
      * 视图组件加载器
      * @param view 视图组件路径
