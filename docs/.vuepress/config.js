@@ -8,9 +8,7 @@ module.exports = {
   themeConfig: {
     lastUpdated: '最后一次修改',
     logo: '/logo.png',
-    subSidebar: 'auto',
     sidebarDepth:3,
-    noFoundPageByTencent: false,
     nav: [
       {
         text: "文档",
