@@ -4,21 +4,34 @@
 
 ### createHappyFramework
 ```ts
-export declare function createHappyFramework(options?: any): HappyKitFramework
+export declare function createHappyFramework(options?: HappyKitFrameworkOption): HappyKitFramework;
 ```
 > 创建核心框架实例
 - 参数
-    - {any} options   
-    扩展选项，暂时不需要传递
+    - {HappyKitFrameworkOption} options   
+    扩展选项，参考`HappyKitFrameworkOption`章节
 - 返回
     - {HappyKitFramework} 框架实例
 - 用法   
 直接调用后，返回的实例利用vue的插件安装方法`app.use(框架实例)`装载即可
 
+### createHappySecurity
+```ts
+export declare function createHappySecurity(options?: HappyKitSecurityOption): HappyKitSecurity;
+```
+> 创建核心安全框架实例，可以独立于`HappyFramework`使用
+- 参数
+  - {HappyKitSecurityOption} options   
+    扩展选项，参考`HappyKitSecurityOption`章节
+- 返回
+  - {HappyKitSecurity} 框架实例
+- 用法   
+  直接调用后，返回的实例利用vue的插件安装方法`app.use(框架实例)`装载即可
+
 ### createEmptyMenuItem
 
 ```ts
-export declare function createEmptyMenuItem(): MenuItem
+export declare function createEmptyMenuItem(): MenuItem;
 ```
 > 创建一个空的菜单数据结构，用于自定义数据填充。
 
@@ -33,7 +46,7 @@ export declare function createEmptyMenuItem(): MenuItem
 ### createDefaultMenuAdapter
 
 ```ts
-export declare function createDefaultMenuAdapter(): MenuAdapter<MenuItem>
+export declare function createDefaultMenuAdapter(): MenuAdapter<MenuItem>;
 ```
 > 创建默认的菜单数据适配器对象
 
@@ -47,12 +60,10 @@ export declare function createDefaultMenuAdapter(): MenuAdapter<MenuItem>
 ### createDefaultPageIdFactory
 
 ```ts
-export declare function createDefaultPageIdFactory(
-  framework: HappyKitFramework
-): PageIdFactory
+export declare function createDefaultPageIdFactory(framework: HappyKitFramework): PageIdFactory;
 ```
 
-> 创建默认的页面id生成工厂对象
+> 创建默认的页面id生成工厂对象，默认是通过`md5(url)`实现
 
 - 参数
     - {HappyKitFramework} framework   
@@ -64,11 +75,43 @@ export declare function createDefaultPageIdFactory(
 - 用法    
 创建默认的页面id生成工厂实例
 
+### createDefaultTrackerIdFactory
+
+```ts
+export declare function createDefaultTrackerIdFactory(framework: HappyKitFramework): TrackerIdFactory;
+```
+
+> 创建默认的追踪Id生成工厂，默认是通过uuid实现
+
+- 参数
+  - {HappyKitFramework} framework   
+    框架实例作为上下文对象
+
+- 返回
+  - {TrackerIdFactory} 追踪id工厂实例
+
+- 用法    
+  创建默认的追踪id生成工厂实例
+
+### createDefaultRouterInterceptor
+```ts
+export declare function createDefaultRouterInterceptor(options: RouterInterceptorOption): RouterInterceptor;
+```
+> 创建默认的路由拦截器对象
+- 参数
+  - {RouterInterceptorOption} options     
+    路由拦截器选项，详细参见`RouterInterceptorOption`章节
+
+- 返回
+  - {RouterInterceptor} 路由拦截器对象
+
+- 用法     
+  在路由对象创建后，在路由`router.beforeEach`或者`router.afterEach`回调中调用即可
 
 ### injectRoutes
 
 ```ts
-export declare function injectRoutes(options: RouterInjectOption):void
+export declare function injectRoutes(options: RouterInjectOption):void;
 ```
 > 路由注入函数
 - 参数
@@ -99,25 +142,6 @@ export declare function upgradeRouter(framework: HappyKitFramework, router: Rout
 - 用法     
   在路由对象和框架创建后调用即可，在需要调用扩展方法的情况下需要做类型断言，   
   比如`(router as HappyKitRouter).push()`
-
-
-### createDefaultRouterInterceptor
-```ts
-export declare function createDefaultRouterInterceptor(
-  options: RouterInterceptorOption
-): RouterInterceptor
-```
-> 创建默认的路由拦截器对象
-- 参数
-    - {RouterInterceptorOption} options     
-    路由拦截器选项，详细参见`RouterInterceptorOption`章节
-
-- 返回
-    - {RouterInterceptor} 路由拦截器对象
-
-- 用法     
-在路由对象创建后，在路由`router.beforeEach`或者`router.afterEach`回调中调用即可
-
 
 ## 接口定义
 
@@ -173,6 +197,17 @@ export declare enum RouterInterceptorType {
 export declare enum HTTPInterceptorType {
     BEFORE = 0,         //前置拦截
     AFTER = 1           //后置拦截
+}
+```
+
+### StorageEngine
+```ts
+/**
+ * 存储引擎类型
+ */
+export enum StorageEngine {
+  LOCAL_STORAGE,        //localStorage
+  SESSION_STORAGE,      //sessionStorage
 }
 ```
 ### MenuItem
@@ -409,6 +444,25 @@ export declare interface PageIdFactory {
     getNextPageId(to: any): string;
 }
 ```
+
+### TrackerIdFactory
+```ts
+/**
+ * 追踪id工厂结构
+ */
+export declare interface TrackerIdFactory {
+  /**
+   * 框架上下文
+   */
+  framework: HappyKitFramework
+  /**
+   * id获取方法
+   * 如果需要从服务端获取的话，请使用同步请求async/await
+   */
+  getId(): string
+}
+```
+
 ### HappyKitFrameworkOption
 ```ts
 /**
@@ -477,7 +531,7 @@ export declare interface HappyKitFramework {
    * 初始化器
    * @param options
    */
-  init(options?: any): void
+  init(options?: HappyKitFrameworkOption): void
 
   /**
    * 设置菜单树
@@ -682,5 +736,112 @@ export declare interface HappyKitRouter extends Router {
     push(to: RouteLocationRaw, title?: string): Promise<NavigationFailure | void | undefined>;
 }
 ```
+
+### User
+```ts
+/**
+ * 用户对象
+ */
+export declare type User = any
+```
+
+### HappyKitSecurityOption
+```ts
+/**
+ * 安全框架选项
+ */
+export declare interface HappyKitSecurityOption {
+  /**
+   * 存储引擎
+   */
+  storageEngine?: StorageEngine
+}
+```
+
+### HappyKitSecurity
+```ts
+/**
+ * 框架安全接口
+ */
+export declare interface HappyKitSecurity {
+  /**
+   * 配置参数
+   */
+  options: HappyKitSecurityOption
+  /**
+   * 用户对象
+   */
+  user: Ref<User | null>
+  /**
+   * token
+   */
+  token: string
+
+  /**
+   * 初始化方法
+   * @param options
+   */
+  init(options?: HappyKitSecurityOption): void
+
+  /**
+   * 获取存储器
+   */
+  getStorage(): Storage
+
+  /**
+   * 刷新用户数据
+   * @param user
+   */
+  refreshUser(user: User): void
+
+  /**
+   * 刷新用户token
+   * @param token
+   */
+  refreshToken(token: string): void
+
+  /**
+   * 获取用户对象
+   */
+  getUser(): Ref<User | null>
+
+  /**
+   * 获取用户token
+   */
+  getToken(): string
+
+  /**
+   * 登录
+   * @param token
+   * @param user
+   */
+  signIn(token: string, user: User): void
+
+  /**
+   * 登出
+   */
+  signOut(): void
+
+  /**
+   * 冷数据加载
+   */
+  loadFromStorage(): void
+  /**
+   * 热数据写入
+   */
+  saveIntoStorage(): void
+
+  /**
+   * 清除存储
+   */
+  flushStorage(): void
+  /**
+   * vue插件
+   * @param app
+   */
+  install(app: App): void
+}
+```
+
 
 
