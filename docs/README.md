@@ -4,7 +4,7 @@ heroImage: /logo.png
 heroText: Happykit
 tagline: 一个基于vue3js的全新管理端开发框架
 actionText: 快速上手 →
-actionLink: /guide/
+actionLink: /quick/
 features:
 - title: Vue3驱动
   details: 站在巨人的肩膀，高性能，灵活。

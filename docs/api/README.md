@@ -152,7 +152,7 @@ export declare function upgradeRouter(framework: HappyKitFramework, router: Rout
  */
 export declare enum MenuType {
     MENU = 0,           //菜单
-    BUTTON = 1          //按钮
+    POINT = 1           //权限点
 }
 ```
 ### LinkTarget

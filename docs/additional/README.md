@@ -20,7 +20,7 @@
         view: '',
         isRouter: false,
         isKeepalive: false,
-        type: 'button',
+        type: 'point',
         children: []
       },
       {
@@ -30,7 +30,7 @@
         view: '',
         isRouter: false,
         isKeepalive: false,
-        type: 'button',
+        type: 'point',
         children: []
       },
       {
@@ -40,7 +40,7 @@
         view: '',
         isRouter: false,
         isKeepalive: false,
-        type: 'button',
+        type: 'point',
         children: []
       }
     ]
@@ -205,7 +205,7 @@
             view: '',
             isRouter: false,
             isKeepalive: false,
-            type: 'button',
+            type: 'point',
             children: []
           },
           {
@@ -215,7 +215,7 @@
             view: '',
             isRouter: false,
             isKeepalive: false,
-            type: 'button',
+            type: 'point',
             children: []
           }
         ]
@@ -235,7 +235,7 @@
             view: '',
             isRouter: false,
             isKeepalive: false,
-            type: 'button',
+            type: 'point',
             children: []
           }
         ]
@@ -255,7 +255,7 @@
             view: '',
             isRouter: false,
             isKeepalive: false,
-            type: 'button',
+            type: 'point',
             children: []
           }
         ]
@@ -275,7 +275,7 @@
             view: '',
             isRouter: false,
             isKeepalive: false,
-            type: 'button',
+            type: 'point',
             children: []
           }
         ]
@@ -348,16 +348,16 @@
       【{{ currentRouteMenu.title }}】
     </div>
     <div>
-      <button @click="openNav('dash-1111')">open1</button>
-      <button @click="openNav('dash-2222')">open2</button>
-      <button @click="openNav('dash-3333')">open3</button>
+      <point @click="openNav('dash-1111')">open1</point>
+      <point @click="openNav('dash-2222')">open2</point>
+      <point @click="openNav('dash-3333')">open3</point>
     </div>
-    <button @click='closeNav(0)'>关闭全部</button>
-    <button @click='closeNav(1)'>关闭左侧</button>
-    <button @click='closeNav(2)'>关闭右侧</button>
-    <button @click='closeNav(3)'>关闭其他</button>
+    <point @click='closeNav(0)'>关闭全部</point>
+    <point @click='closeNav(1)'>关闭左侧</point>
+    <point @click='closeNav(2)'>关闭右侧</point>
+    <point @click='closeNav(3)'>关闭其他</point>
     <div v-for='e in navList' :key='e.pageId'>
-      <button @click='closeNav(4,e.pageId)'>CLOSE</button>
+      <point @click='closeNav(4,e.pageId)'>CLOSE</point>
       <a :style="currentRouteMenu?.pageId===e.pageId?'color:red':''" @click='navClick(e.pageId)'>{{ e.title }}</a>
     </div>
     <div>

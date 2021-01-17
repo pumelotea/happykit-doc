@@ -1,6 +1,6 @@
 module.exports = {
   title: 'HappyKit',
-  description: 'v1.0.6',
+  description: 'v1.1.0',
   head: [
     ['link', { rel: 'icon', href: '/logo.png' }]
   ],
@@ -11,7 +11,11 @@ module.exports = {
     sidebarDepth:3,
     nav: [
       {
-        text: "文档",
+        text: "快速上手",
+        link: "/quick/",
+      },
+      {
+        text: "使用手册",
         link: "/guide/",
       },
       {
@@ -21,10 +25,14 @@ module.exports = {
       {
         text: "生态",
         items: [
-          { text: 'Admin for ElementPlus', link: "/happyboot-element/" },
-          { text: 'Admin for AntDesign', link: "/happyboot-ant/" },
-          { text: 'SpringBoot for HappyBoot', link: "/happyboot-springboot/" },
+          { text: '基于ElementPlus的Admin框架', link: "/happyboot-element/" },
+          { text: '基于AntDesign的Admin框架', link: "/happyboot-ant/" },
+          { text: 'HappyBoot', link: "/happyboot-springboot/" },
         ]
+      },
+      {
+        text: "Q/A",
+        link: "/qa/",
       },
       {
         text: "附录",
@@ -36,8 +44,10 @@ module.exports = {
       }
     ],
     sidebar: [
+      '/quick/',
       '/guide/',
       '/api/',
+      '/qa/',
       '/additional/'
     ]
 
