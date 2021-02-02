@@ -25,9 +25,9 @@ module.exports = {
       {
         text: "生态",
         items: [
-          { text: '基于ElementPlus的Admin框架', link: "/happyboot-element/" },
-          { text: '基于AntDesign的Admin框架', link: "/happyboot-ant/" },
-          { text: 'HappyBoot', link: "/happyboot-springboot/" },
+          { text: 'ElementPlus', link: "/happyboot-element/" },
+          { text: 'AntDesign', link: "/happyboot-ant/" },
+          { text: 'HappyBootApi', link: "/happyboot-api/" },
         ]
       },
       {
