@@ -3,7 +3,7 @@
 > 目前只实现了基础的ssh连接功能
 
 
-![avatar](/happy-ssh-preview.png)
+![preview](/happy-ssh-preview.png)
 
 ## Github
 [https://github.com/pumelotea/happy-ssh](https://github.com/pumelotea/happy-ssh)
