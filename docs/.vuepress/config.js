@@ -28,6 +28,7 @@ module.exports = {
           { text: 'ElementPlus', link: "/happyboot-element/" },
           { text: 'AntDesign', link: "/happyboot-ant/" },
           { text: 'HappyBootApi', link: "/happyboot-api/" },
+          { text: 'HappySSH', link: "/happy-ssh/" },
         ]
       },
       {

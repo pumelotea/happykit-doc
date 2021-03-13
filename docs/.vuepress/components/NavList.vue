@@ -9,8 +9,8 @@
       <div class="text"><a href="/happyboot-element">HappyBoot ElementPlus</a></div>
     </div>
     <div class="nav-item">
-      <img class="logo" src="/logo.png">
-      <div class="text"><a href="/happyboot-ant">HappyBoot AntDesgin</a></div>
+      <img class="logo" src="/electron.jpg">
+      <div class="text"><a href="/happy-ssh">HappySSH</a></div>
     </div>
   </div>
 </template>
