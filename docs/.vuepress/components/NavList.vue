@@ -1,7 +1,7 @@
 <template>
   <div class="nav-container">
     <div class="nav-item">
-      <img class="logo" src="/logo.png">
+      <img class="logo" src="/happyboot-api.svg">
       <div class="text"><a href="/happyboot-api/">HappyBoot API</a></div>
     </div>
     <div class="nav-item">
