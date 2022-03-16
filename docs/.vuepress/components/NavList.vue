@@ -1,16 +1,16 @@
 <template>
   <div class="nav-container">
     <div class="nav-item">
-      <img class="logo" src="/happyboot-api.svg">
-      <div class="text"><a href="/happyboot-api/">HappyBoot API</a></div>
+      <img class="logo" src="/h_logo.png">
+      <div class="text"><a href="/happyboot-tiger">HappyBoot Tiger</a></div>
     </div>
     <div class="nav-item">
       <img class="logo" src="https://element.happykit.org/favicon.svg">
       <div class="text"><a href="/happyboot-element">HappyBoot ElementPlus</a></div>
     </div>
     <div class="nav-item">
-      <img class="logo" src="/electron.jpg">
-      <div class="text"><a href="/happy-ssh">HappySSH</a></div>
+      <img class="logo" src="/happyboot-api.svg">
+      <div class="text"><a href="/happyboot-api/">HappyBoot API</a></div>
     </div>
   </div>
 </template>

@@ -25,10 +25,9 @@ module.exports = {
       {
         text: "生态",
         items: [
+          { text: 'HappyBootTiger', link: "/happyboot-tiger/" },
           { text: 'ElementPlus', link: "/happyboot-element/" },
-          { text: 'AntDesign', link: "/happyboot-ant/" },
           { text: 'HappyBootApi', link: "/happyboot-api/" },
-          { text: 'HappySSH', link: "/happy-ssh/" },
         ]
       },
       {
@@ -41,7 +40,7 @@ module.exports = {
       },
       {
         text: "Github",
-        link: "https://github.com/pumelotea/happykit.git",
+        link: "https://github.com/pumelotea/happykit-next.git",
       }
     ],
     sidebar: [
