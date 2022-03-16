@@ -21,7 +21,7 @@ footer: Apache2.0 Licensed | Copyright © 2020-2021 happykit.org
 
 ## 状态
 
-[![image](https://img.shields.io/npm/v/happykit)](https://www.npmjs.com/package/happykit) [![image](https://img.shields.io/github/last-commit/pumelotea/happykit)](https://github.com/pumelotea/happykit)
+[![image](https://img.shields.io/npm/v/happykit)](https://www.npmjs.com/package/happykit) [![image](https://img.shields.io/github/last-commit/pumelotea/happykit-next)](https://github.com/pumelotea/happykit-next)
 
 
 ## 框架介绍
@@ -33,4 +33,7 @@ happykit不依赖任何第三方的UI库，开发者可以使用自己喜欢的U
 - 基于vue3js
 - 基于Typescript
 - 基于vue-router
+
+## 感谢
+陈旭东、陆晓庆、李春辉
 
